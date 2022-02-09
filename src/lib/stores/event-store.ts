@@ -124,10 +124,9 @@ export class EventStore
     }
 
     const eventPayload: EventData = createJsonEventData(
-      v4(),
+      (event as any).id ? (event as any).id : v4(),
       event,
       null,
-      stream
     );
 
     const streamId = stream ? stream : this.featureStream;
